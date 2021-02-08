@@ -1,0 +1,19 @@
+name: repo dispatch for personal website
+
+on:
+  push:
+    branches:
+    - main
+
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    steps:
+       - name: Repository Dispatch
+         uses: mvasigh/dispatch-action@1.1.6
+         with:
+          token: ${{ secrets.PAT }}
+          repo: mharty3.github.io
+          owner: mharty3
+          event_type: sample_push
+      
